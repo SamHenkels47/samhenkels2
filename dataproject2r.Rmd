@@ -8,9 +8,26 @@ mydata=rio::import(link)
 mydata
 ```
 ```{r}
-mydata$"twentyone"=as.factor(mydata$"twentyone")
-head(mydata)
+names(mydata)
+str(mydata,width = 50,strict.width='cut')
 ```
 ```{r}
-ggplot(mydata, aes(x=ten, y=twentyone)) + geom_point()
+(exportyear=table(mydata$Description,mydata$ten,mydata$fifteen,mydata$twenty))
+```
+
+```{r}
+(Precent_exportyear=prop.table(exportyear,
+                            margin = 2)%>%round(.,3))
+
+```
+```{r}
+exportyearDF=as.data.frame(exportyear)
+names(exportyearDF)=c("Description","ten","fifteen","twenty")
+```
+
+```{r}
+library(ggplot2)
+base1=ggplot(data=exportyearDF,aes(x=Description, y=ten
+                 fill=twenty)) 
+base1
 ```
