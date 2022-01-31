@@ -1,0 +1,16 @@
+
+```{r}
+link="https://github.com/SamHenkels47/samhenkels2/raw/main/dataproject2.xlsx"
+
+library(rio)
+mydata=rio::import(link)
+
+mydata
+```
+```{r}
+mydata$"twentyone"=as.factor(mydata$"twentyone")
+head(mydata)
+```
+```{r}
+ggplot(mydata, aes(x=ten, y=twentyone)) + geom_point()
+```
