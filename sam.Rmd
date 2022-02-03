@@ -1,0 +1,49 @@
+```{r}
+link='https://github.com/SamHenkels47/samhenkels2/raw/main/dataproject2.xlsx'
+mydata=rio::import(link)
+mydata
+```
+```{r}
+library(reshape2)
+
+melt(mydata,id.vars="Description")
+
+```
+```{r}
+mydataLong=melt(mydata,id.vars="Description")
+names(mydataLong)[2]="year" #renaming second name
+# year as an ordinal factor!
+mydataLong$year=factor(mydataLong$year,
+                       levels = c("ten","fifteen","twenty"),
+                       ordered = TRUE)
+```
+
+Now to ggplot!
+
+```{r}
+library(ggplot2)
+base=ggplot(data=mydataLong,
+            aes(x=year,
+                y=value,
+                fill=Description))
+base + geom_bar(stat="identity") 
+```
+
+just in case:
+```{r}
+plot1=base + geom_bar(stat="identity") + 
+    scale_y_continuous(labels = scales::number) # requires library "scales"
+```
+```{r}
+titleText='Exports from Oregon'
+sourceText='Source: US Census Bureau'
+descriptionText='Export Clasification'
+
+plot2 = plot1 + labs(title=titleText,
+                     x ="Year", 
+                     y = "Exports in Million $ ",
+                     caption = sourceText) 
+
+plot2
+```
+```{r}
