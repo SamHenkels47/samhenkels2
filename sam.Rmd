@@ -47,3 +47,13 @@ plot2 = plot1 + labs(title=titleText,
 plot2
 ```
 ```{r}
+plot3 = plot2 + theme(plot.caption = element_text(hjust = 0), 
+                      plot.title = element_text(hjust = 0.5))
+plot3
+```
+
+```{r}
+plot4 = plot3 + scale_x_discrete("Year", labels = c ("ten" = "2010","fifteen"= "2015", "twenty" = "2020"))
+
+plot4
+```
