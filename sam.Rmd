@@ -59,11 +59,9 @@ plot4 = plot3 + scale_x_discrete("Year", labels = c ("ten" = "2010","fifteen"= "
 plot4
 ```
 
+
 ```{r}
 plot5 = plot4 +  geom_text(aes(label = value))
 
 plot5
-```
-
-
 ```
