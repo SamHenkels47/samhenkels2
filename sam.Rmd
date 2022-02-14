@@ -61,7 +61,8 @@ plot4
 
 
 ```{r}
-plot5 = plot4 +  geom_text(aes(label = value))
+plot5 = plot4 +  geom_text(aes(label = value),position = position_stack(vjust = 0.5,), size = 1.5)
 
 plot5
 ```
+
