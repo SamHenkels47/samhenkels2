@@ -65,4 +65,8 @@ plot5 = plot4 +  geom_text(aes(label = value),position = position_stack(vjust = 
 
 plot5
 ```
+```{r}
+saveRDS(plot5,file = 'chart2.rds')
+saveRDS(plot5,file='chart2.rds')
 
+```
