@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 ```{r}
 link='https://github.com/SamHenkels47/samhenkels2/raw/main/dataproject2.xlsx'
 mydata=rio::import(link)
@@ -61,7 +66,7 @@ plot4
 
 
 ```{r}
-plot5 = plot4 +  geom_text(aes(label = value),position = position_stack(vjust = 0.5,), size = 1.5)
+plot5 = plot4 +  geom_text(aes(label = value),position = position_stack(vjust = 0.5,), size = 1.6)
 
 plot5
 ```
